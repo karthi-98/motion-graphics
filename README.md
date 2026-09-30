@@ -1,6 +1,10 @@
 # Claude Bot — 60-second fan-concept reveal
 
-A single self-contained `index.html`: every visual is HTML/SVG, and all music and sound effects are synthesized live in the browser with [Tone.js](https://tonejs.github.io/) (loaded from cdnjs). There's no voiceover and no image or audio files.
+[![Final frame: Clawd winks above the "Claude Bot" wordmark](claude-bot-reveal.jpg)](claude-bot-reveal.mp4)
+
+**▶ [Watch the video — `claude-bot-reveal.mp4`](claude-bot-reveal.mp4)** · 1920×1080 · 60 fps · H.264 + AAC · 62 s (the 60-second piece plus its reverb tail over black) · 36 MB
+
+A single self-contained `index.html`: every visual is HTML/SVG, and all music and sound effects are synthesized live in the browser with [Tone.js](https://tonejs.github.io/) (loaded from cdnjs). The page uses no voiceover and no image or audio files.
 
 > Fan concept — not an official Anthropic product.
 
@@ -11,6 +15,14 @@ Open `index.html` in a browser and press **▶ Play** (or Space). Browsers need 
 - The 1920×1080 stage scales to fit any window (16:9, letterboxed).
 - The visuals follow `Tone.Transport` at the moment the audio is actually heard (output-latency compensated), so picture and sound stay locked. If the tab is hidden, the picture catches up when you come back.
 - If Tone.js can't load, it retries jsDelivr and unpkg, and if those fail too the animation plays silently.
+
+## The video
+
+`claude-bot-reveal.mp4` is rendered from this same page rather than screen-recorded, so it matches the live version exactly:
+
+- **Picture:** each frame is captured at its exact timestamp at 60 fps. Frames are drawn at 3840×2160 and downscaled to 1080p for clean edges.
+- **Sound:** the same score is rendered offline with Tone.js at 48 kHz, so every hop and hit lands on its frame. The video's audio is mastered to −16 LUFS; the live page plays the unmastered mix, about 8 dB quieter.
+- **Encoding:** H.264 High profile (CRF 16, BT.709 colour) with 320 kbps AAC, set up for streaming ("fast start").
 
 ## How it's built
 
