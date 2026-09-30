@@ -1799,9 +1799,9 @@ window.__cb = {
   renderAt, SCORE, SPB, END, get mode() { return mode; },
   beat: () => lastB,
   freeze: () => { mode = 'frozen'; },
-  offline: async (secs = 63, only) => Tone.Offline(async ({transport}) => {
+  offline: async (secs = 63, only, sampleRate = 44100) => Tone.Offline(async ({transport}) => {
     const A = buildAudio(); await A.ready; scheduleScore(transport, A, only); transport.start(0);
-  }, secs, 2, 44100),
+  }, secs, 2, sampleRate),
 };
 })();
 </script>
